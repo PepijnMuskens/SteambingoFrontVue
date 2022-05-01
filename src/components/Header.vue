@@ -20,8 +20,11 @@ export default {
 <style scoped>
     header{
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
-        margin-bottom: 20px;
+        padding-left: 60px;
+        padding-right: 60px;
+        margin-bottom: 70px;
+        background: #1f1f1f;
     }
 </style>

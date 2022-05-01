@@ -1,32 +1,16 @@
 <template>
 <Header title='Top Bar'/>
-<Games :games='games'/>
+<router-view></router-view>
+
 </template>
 
 <script>
 import Header from './components/Header'
-import Games from './components/Games'
 
 export default {
   name: 'App',
   components: {
-    Header,
-    Games
-  },
-  data () {
-    return {
-      games: []
-    }
-  },
-  methods: {
-    async fetchGames () {
-      const res = await fetch('https://i437675.luna.fhict.nl/steambingo/getsteamgames')
-      const data = await res.json()
-      return data
-    }
-  },
-  async created () {
-    this.games = await this.fetchGames()
+    Header
   }
 }
 </script>
@@ -38,6 +22,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+body {
+  background-image: url('https://cdn.cloudflare.steamstatic.com/steam/apps/714010/page_bg_generated_v6b.jpg?t=1648914721');
 }
 </style>

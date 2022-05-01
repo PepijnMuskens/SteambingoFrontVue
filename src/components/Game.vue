@@ -1,6 +1,6 @@
 <template>
 <div class="card">
-        <h3>{{game.name}} </h3>
+        <router-link to="/game">{{game.name}}</router-link>
         <h3>{{game.steamId}}</h3>
 </div>
 </template>
