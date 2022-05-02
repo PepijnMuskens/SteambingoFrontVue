@@ -1,6 +1,6 @@
 <template>
 <div class="card">
-        <router-link to="/game">{{game.name}}</router-link>
+        <router-link :to="{path:'/game/' + game.steamId}">{{game.name}}</router-link>
         <h3>{{game.steamId}}</h3>
 </div>
 </template>
@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
   .card{
-      background: #f4f4f4;
+      background: #1f1f1f;
       display: flex;
       justify-content: flex-start;
       flex-direction: column ;;
@@ -24,5 +24,14 @@ export default {
       padding-left: 10%;
       padding-right: 10%;
       margin-bottom: 20%;
+      padding-top: 10px;
+  }
+  a {
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+  }
+  h3{
+    color: gray;
   }
 </style>

@@ -1,4 +1,5 @@
 <template>
+     <h1>All games</h1>
     <div class="test">
         <div v-for="game in games" :key="game.steamId">
             <Game :game="game"/>
@@ -28,5 +29,8 @@ export default {
         margin-left: 10%;
         margin-right: 10%;
         justify-content: space-between;
+    }
+    h1{
+      color: black;
     }
 </style>

@@ -1,35 +1,33 @@
 <template>
-    <h1>{{Game.name}}</h1>
+    <router-link :to="{path:'/lobby/' + ChallengeList.id}">Play</router-link>
+    <h1>{{ChallengeList.Name}}</h1>
     <div>
-        <Challenges :Challenges="Game.challenges"/>
-        <ChallengeLists :ChallengeLists="Game.challengesLists"/>
+        <Challenges :Challenges="ChallengeList.challenges"/>
     </div>
 </template>
 
 <script>
 import Challenges from '../components/challenges'
-import ChallengeLists from '../components/ChallengeLists'
 
 export default {
   name: 'Game_View',
   data () {
     return {
-      Game: Object
+      ChallengeList: Object
     }
   },
   methods: {
-    async fetchGame () {
-      const res = await fetch('https://i437675.luna.fhict.nl/steambingo/getsteamgame?id=' + this.$route.params.id)
+    async fetchchallengelist () {
+      const res = await fetch('https://i437675.luna.fhict.nl/steambingo/getchallengelist?id=' + this.$route.params.id)
       const data = await res.json()
       return data
     }
   },
   async created () {
-    this.Game = await this.fetchGame()
+    this.ChallengeList = await this.fetchchallengelist()
   },
   components: {
-    Challenges,
-    ChallengeLists
+    Challenges
   }
 }
 </script>
@@ -51,5 +49,11 @@ export default {
   div{
     display: flex;
     justify-content: space-evenly;
+  }
+  a {
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 50px;
   }
 </style>

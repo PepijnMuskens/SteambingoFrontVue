@@ -1,6 +1,6 @@
 <template>
     <header>
-        <h1>{{title}}</h1>
+        <a href="/"><h1>{{title}}</h1></a>
         <Button text="Test" color="green"/>
     </header>
 </template>
@@ -26,5 +26,10 @@ export default {
         padding-right: 60px;
         margin-bottom: 70px;
         background: #1f1f1f;
+    }
+    a {
+        color: gray;
+        text-decoration: none;
+        text-transform: uppercase;
     }
 </style>

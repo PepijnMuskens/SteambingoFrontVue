@@ -1,5 +1,5 @@
 <template>
-<Header title='Top Bar'/>
+<Header title='Home'/>
 <router-view></router-view>
 
 </template>
@@ -25,5 +25,6 @@ export default {
 }
 body {
   background-image: url('https://cdn.cloudflare.steamstatic.com/steam/apps/714010/page_bg_generated_v6b.jpg?t=1648914721');
+  background-size: cover;
 }
 </style>
