@@ -1,5 +1,8 @@
 <template>
-    <h1>{{Game.name}}</h1>
+    <h1>{{Lobby.id}}</h1>
+    <div v-for="player in Lobby.players" :key="player.steamId">
+      <h3>{{player.name}}</h3>
+    </div>
     <div>
         <ChallengeList :ChallengeLists="Lobby.challengesList"/>
     </div>
@@ -17,9 +20,11 @@ export default {
   },
   methods: {
     async fetchLobby () {
-      const res = await fetch('https://steambingogame.azurewebsites.net/Lobby/GetLobby?id=' + this.$route.params.id)
+      const res = await fetch('https://localhost:7174/Lobby/CreateLobby?id=' + this.$route.params.id)
       const data = await res.json()
-      return data
+      const res2 = await fetch('https://localhost:7174/lobby/addplayer?lobbyid=' + data.id + '&playerid=76561198076269357')
+      const data2 = await res2.json()
+      return data2
     }
   },
   async created () {

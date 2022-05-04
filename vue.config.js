@@ -1,4 +1,4 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = {
-  publicPath:'/SteamBingoGame/'
+  publicPath:'/steambingofrontvue/'
 }
