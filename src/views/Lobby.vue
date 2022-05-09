@@ -20,11 +20,14 @@ export default {
   },
   methods: {
     async fetchLobby () {
-      const res = await fetch('https://localhost:7174/Lobby/CreateLobby?id=' + this.$route.params.id)
+      const res = await fetch('https://localhost:7174/Lobby/GetLobby?id=' + this.$route.params.id)
       const data = await res.json()
-      const res2 = await fetch('https://localhost:7174/lobby/addplayer?lobbyid=' + data.id + '&playerid=76561198076269357')
-      const data2 = await res2.json()
-      return data2
+      return data
+    },
+    async addPlayer () {
+      const res = await fetch('https://localhost:7174/lobby/addplayer?lobbyid=' + this.Lobby.id + '&playerid=' + 124)
+      const data = await res.json()
+      return data
     }
   },
   async created () {

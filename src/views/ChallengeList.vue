@@ -1,4 +1,5 @@
 <template>
+    <button @click="fetchLobby()">{{lobbyid}}</button>
     <router-link :to="{path:'/lobby/' + ChallengeList.id}">Play</router-link>
     <h1>{{ChallengeList.Name}}</h1>
     <div>
@@ -13,7 +14,8 @@ export default {
   name: 'Game_View',
   data () {
     return {
-      ChallengeList: Object
+      ChallengeList: Object,
+      lobbyid: Number
     }
   },
   methods: {
@@ -21,6 +23,12 @@ export default {
       const res = await fetch('https://i437675.luna.fhict.nl/steambingo/getchallengelist?id=' + this.$route.params.id)
       const data = await res.json()
       return data
+    },
+    async fetchLobby () {
+      const res = await fetch('https://localhost:7174/Lobby/CreateLobby?id=' + this.$route.params.id)
+      const data = await res.json()
+      this.lobbyid = data.id
+      this.$router.push({ name: 'Lobby', params: { id: data.id } })
     }
   },
   async created () {
