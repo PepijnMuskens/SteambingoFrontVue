@@ -1,18 +1,14 @@
 <template>
-    <h1>{{Lobby.id}}</h1>
-    <div v-for="player in Lobby.players" :key="player.steamId">
-      <h3>{{player.name}}</h3>
-    </div>
-    <div>
-        <ChallengeList :ChallengeLists="Lobby.challengesList"/>
-    </div>
+<div>
+  <h1>{{Lobby.id}}</h1>
+    <PlayerList :players="Lobby.players"/>
+</div>
 </template>
-
 <script>
-import ChallengeList from '../components/ChallengeList'
+import PlayerList from '../components/PlayerList'
 
 export default {
-  name: 'Game_View',
+  name: 'Lobby_View',
   data () {
     return {
       Lobby: Object
@@ -23,18 +19,13 @@ export default {
       const res = await fetch('https://localhost:7174/Lobby/GetLobby?id=' + this.$route.params.id)
       const data = await res.json()
       return data
-    },
-    async addPlayer () {
-      const res = await fetch('https://localhost:7174/lobby/addplayer?lobbyid=' + this.Lobby.id + '&playerid=' + 124)
-      const data = await res.json()
-      return data
     }
   },
   async created () {
     this.Lobby = await this.fetchLobby()
   },
   components: {
-    ChallengeList
+    PlayerList
   }
 }
 </script>
@@ -53,8 +44,12 @@ export default {
   h1{
     color: black;
   }
+  h3{
+    color: black;
+  }
   div{
     display: flex;
     justify-content: space-evenly;
+    flex-direction: column ;
   }
 </style>

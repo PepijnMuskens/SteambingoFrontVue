@@ -12,7 +12,7 @@
 import Challenge from './challenge'
 
 export default {
-  name: 'All_Games',
+  name: 'All_Challenges',
   props: {
     Challenges: Array
   },
