@@ -1,6 +1,5 @@
 <template>
-    <button @click="fetchLobby()">{{lobbyid}}</button>
-    <router-link :to="{path:'/lobby/' + ChallengeList.id}">Play</router-link>
+    <button @click="fetchLobby()">Play</button>
     <h1>{{ChallengeList.Name}}</h1>
     <div>
         <Challenges :Challenges="ChallengeList.challenges"/>
