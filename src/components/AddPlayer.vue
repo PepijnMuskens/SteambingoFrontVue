@@ -1,26 +1,30 @@
 <template>
-     <h1>Add Player</h1>
-    <Button text="Test" color="Green"/>
+<div class="addplayer">
+  <h1>Add Player</h1>
+     <input v-model="name" placeholder="name">
+     <input v-model="id" placeholder="steamid">
+    <button @click="addPlayer()">Add Player</button>
+</div>
 </template>
 
 <script>
-import Button from './Button'
 
 export default {
-  name: 'All_Games',
+  name: 'Add_Player',
   props: {
-    games: Array,
     name: String,
-    id: String
+    id: String,
+    lobbyid: Number
   },
   components: {
-    Button
   },
   methods: {
     async addPlayer () {
-      const res = await fetch('https://localhost:7174/lobby/addplayer?lobbyid=' + this.Lobby.id + '&playerid=' + this.id)
+      const res1 = await fetch('https://localhost:7174/lobby/CreatePlayer?name=' + this.name + '&steamid=' + this.id)
+      const data2 = await res1.json()
+      const res = await fetch('https://localhost:7174/lobby/addplayer?lobbyid=' + this.lobbyid + '&playerid=' + this.id)
       const data = await res.json()
-      return data
+      this.$router.push({ name: 'Lobby', params: { id: data.id } })
     }
   }
 }
@@ -36,5 +40,9 @@ export default {
     }
     h1{
       color: black;
+    }
+    .addplayer{
+      display: flex;
+      align-self: flex-start;
     }
 </style>

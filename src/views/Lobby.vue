@@ -1,11 +1,13 @@
 <template>
-<div>
-  <h1>{{Lobby.id}}</h1>
+<h1>{{Lobby.id}}</h1>
+<div class="content">
+    <AddPlayer :lobbyid="Lobby.id"/>
     <PlayerList :players="Lobby.players"/>
 </div>
 </template>
 <script>
 import PlayerList from '../components/PlayerList'
+import AddPlayer from '../components/AddPlayer'
 
 export default {
   name: 'Lobby_View',
@@ -25,7 +27,8 @@ export default {
     this.Lobby = await this.fetchLobby()
   },
   components: {
-    PlayerList
+    PlayerList,
+    AddPlayer
   }
 }
 </script>
@@ -51,5 +54,10 @@ export default {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column ;
+  }
+  .content{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
 <div class="card">
-    <img :src="player.pic">
+    <img :src="'data:image/jpeg;base64,'+player.pic">
     <h1>{{player.name}}</h1>
     <h3>{{player.steamId}}</h3>
 </div>
@@ -19,18 +19,16 @@ export default {
   .card{
       background: #1f1f1f;
       display: flex;
-      justify-content: flex-start;
-      flex-direction: column ;;
+      flex-direction: column;
       width: 200px;
       padding-left: 10%;
       padding-right: 10%;
       margin-bottom: 20%;
       padding-top: 10px;
   }
-  a {
+  h1 {
       color: white;
       text-decoration: none;
-      text-transform: uppercase;
   }
   h3{
     color: gray;
