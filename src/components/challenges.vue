@@ -32,6 +32,6 @@ export default {
         width: 30%;
     }
     h1{
-        color: black;
+        color: darkgray;
     }
 </style>

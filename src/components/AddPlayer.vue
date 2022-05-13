@@ -12,19 +12,22 @@
 export default {
   name: 'Add_Player',
   props: {
-    name: String,
-    id: String,
     lobbyid: Number
+  },
+  data () {
+    return {
+      form: {
+        name: '',
+        id: ''
+      }
+    }
   },
   components: {
   },
   methods: {
     async addPlayer () {
-      const res1 = await fetch('https://localhost:7174/lobby/CreatePlayer?name=' + this.name + '&steamid=' + this.id)
-      const data2 = await res1.json()
-      const res = await fetch('https://localhost:7174/lobby/addplayer?lobbyid=' + this.lobbyid + '&playerid=' + this.id)
-      const data = await res.json()
-      this.$router.push({ name: 'Lobby', params: { id: data.id } })
+      await fetch('https://localhost:7174/lobby/addplayer?lobbyid=' + this.lobbyid + '&name=' + this.name + '&steamid=' + this.id)
+      this.$router.push({ name: 'Lobby', params: { id: this.lobbyid } })
     }
   }
 }
@@ -36,13 +39,22 @@ export default {
         flex-wrap: wrap;
         margin-left: 10%;
         margin-right: 10%;
-        justify-content: space-between;
+        justify-content: center;
     }
     h1{
-      color: black;
+      color: darkgray;
     }
     .addplayer{
       display: flex;
-      align-self: flex-start;
+      justify-content: center;
+    }
+    input{
+      margin-left: 20%;
+      margin-right: 20%;
+      text-align: center;
+    }
+    button{
+      margin-left: 20%;
+      margin-right: 20%;
     }
 </style>
