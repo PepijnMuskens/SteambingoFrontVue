@@ -12,7 +12,8 @@
 export default {
   name: 'Add_Player',
   props: {
-    lobbyid: Number
+    lobbyid: Number,
+    gameid: Number
   },
   data () {
     return {
@@ -26,7 +27,7 @@ export default {
   },
   methods: {
     async addPlayer () {
-      await fetch('https://localhost:7174/lobby/addplayer?lobbyid=' + this.lobbyid + '&name=' + this.name + '&steamid=' + this.id)
+      await fetch('https://localhost:7174/lobby/addplayer?lobbyid=' + this.lobbyid + '&name=' + this.name + '&steamid=' + this.id + '&gameid=' + this.gameid)
       this.$router.push({ name: 'Lobby', params: { id: this.lobbyid } })
     }
   }

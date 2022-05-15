@@ -3,6 +3,7 @@ import Game from '../views/Game'
 import Home from '../views/Home'
 import ChallengeList from '../views/ChallengeList'
 import Lobby from '../views/Lobby'
+import AddGame from '../views/AddGame'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/lobby/:id',
     name: 'Lobby',
     component: Lobby
+  },
+  {
+    path: '/addgame',
+    name: 'AddGame',
+    component: AddGame
   }
 ]
 

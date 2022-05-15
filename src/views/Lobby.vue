@@ -4,7 +4,7 @@
 <div class="fullpage" v-if="Lobby.open == true">
   <div class="content">
   <div>
-    <AddPlayer :lobbyid="Lobby.id"/>
+    <AddPlayer :lobbyid="Lobby.id" :gameid="Lobby.challengelist.challenges[0].gameid"/>
   </div>
     <PlayerList :players="Lobby.players"/>
   </div>

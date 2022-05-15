@@ -1,7 +1,12 @@
 <template>
     <header>
-        <a href="/"><h1>{{title}}</h1></a>
-        <Button text="Test" color="green"/>
+        <div class="start">
+            <a href="/"><h1>All Games</h1></a>
+            <a href="/addgame"><h3>Add Game</h3></a>
+        </div>
+        <div class="end">
+            <Button text="Test" color="green"/>
+        </div>
     </header>
 </template>
 
@@ -31,5 +36,24 @@ export default {
         color: gray;
         text-decoration: none;
         text-transform: uppercase;
+        height: auto;
+        padding: 20px;
+        text-align: end;
+    }
+    h1{
+        margin: 0px;
+    }
+    h3{
+        margin: 0px;
+    }
+    .start{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    .end{
+        display: flex;
+        align-items: flex-end;
+        height: max-content;
     }
 </style>

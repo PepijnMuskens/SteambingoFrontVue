@@ -1,7 +1,7 @@
 <template>
     <h1>{{Game.name}}</h1>
     <div>
-        <Challenges :Challenges="Game.challenges"/>
+        <Challenges :Challenges="Game.challenges" :gameid="Game.steamId"/>
         <ChallengeLists :ChallengeLists="Game.challengesLists"/>
     </div>
 </template>
@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     async fetchGame () {
-      const res = await fetch('https://i437675.luna.fhict.nl/steambingo/getsteamgame?id=' + this.$route.params.id)
+      const res = await fetch('https://steambingogame20220512121421.azurewebsites.net/steambingo/getsteamgame?id=' + this.$route.params.id)
       const data = await res.json()
       return data
     }
@@ -46,7 +46,7 @@ export default {
       margin-bottom: 20%;
   }
   h1{
-    color: black;
+    color: darkgray;
   }
   div{
     display: flex;

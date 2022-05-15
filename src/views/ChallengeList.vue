@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     async fetchchallengelist () {
-      const res = await fetch('https://i437675.luna.fhict.nl/steambingo/getchallengelist?id=' + this.$route.params.id)
+      const res = await fetch('https://steambingogame20220512121421.azurewebsites.net/steambingo/getchallengelist?id=' + this.$route.params.id)
       const data = await res.json()
       return data
     },

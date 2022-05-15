@@ -31,6 +31,6 @@ export default {
         justify-content: space-between;
     }
     h1{
-      color: black;
+      color: darkgray;
     }
 </style>
