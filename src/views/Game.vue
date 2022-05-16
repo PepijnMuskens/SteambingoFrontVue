@@ -1,14 +1,22 @@
 <template>
     <h1>{{Game.name}}</h1>
     <div>
-        <Challenges :Challenges="Game.challenges" :gameid="Game.steamId"/>
-        <ChallengeLists :ChallengeLists="Game.challengesLists"/>
+      <div class="column">
+        <AddChallenge :gameid="Game.steamId" />
+        <Challenges :Challenges="Game.challenges"/>
+      </div>
+        <div class="column">
+          <AddChallengeList :gameid="Game.steamId" />
+          <ChallengeLists :ChallengeLists="Game.challengesLists"/>
+        </div>
     </div>
 </template>
 
 <script>
 import Challenges from '../components/challenges'
 import ChallengeLists from '../components/ChallengeLists'
+import AddChallenge from '../components/AddChallenge'
+import AddChallengeList from '../components/AddChallengeList'
 
 export default {
   name: 'Game_View',
@@ -29,7 +37,9 @@ export default {
   },
   components: {
     Challenges,
-    ChallengeLists
+    ChallengeLists,
+    AddChallenge,
+    AddChallengeList
   }
 }
 </script>
@@ -51,5 +61,10 @@ export default {
   div{
     display: flex;
     justify-content: space-evenly;
+  }
+  .column{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 </style>

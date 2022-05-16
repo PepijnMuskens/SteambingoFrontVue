@@ -26,9 +26,12 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        margin-left: 10%;
-        margin-right: 10%;
-        width: 30%;
+    }
+    .challengelists{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
     }
     h1{
         color: darkgray;

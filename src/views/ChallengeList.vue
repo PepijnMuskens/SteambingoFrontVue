@@ -1,7 +1,7 @@
 <template>
     <button @click="fetchLobby()">Play</button>
     <h1>{{ChallengeList.Name}}</h1>
-    <div>
+    <div class="challenges">
         <Challenges :Challenges="ChallengeList.challenges"/>
     </div>
 </template>
@@ -62,5 +62,11 @@ export default {
       text-decoration: none;
       text-transform: uppercase;
       font-size: 50px;
+  }
+  .challenges{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
