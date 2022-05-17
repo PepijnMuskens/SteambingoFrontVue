@@ -1,11 +1,9 @@
 <template>
-<button v-if="!open" @click="Open()">v</button>
-<button v-if="open" @click="Close()">/\</button>
-<div v-if="open" class="addchallenge">
-  <h3>Add Challenge {{gameid}} </h3>
-     <input v-model="name" placeholder="name">
-    <button @click="AddChallengeList()">Add ChallengeList</button>
-</div>
+  <h3>Add Challenge {{challengelistid}}</h3>
+     <select v-model="id" id="challenge">
+         <option v-for="challenge in AvailableChallenges" :key="challenge.id" :value="challenge.id">{{challenge.discription}}</option>
+     </select>
+    <button @click="AddChallengeList()">Add Challenge</button>
 </template>
 
 <script>
@@ -13,15 +11,16 @@
 export default {
   name: 'Add_Challenge',
   props: {
-    gameid: Number
+    Challenges: [],
+    AvailableChallenges: [],
+    challengelistid: Number
   },
   data () {
     return {
       form: {
-        name: ''
+        id: ''
       },
-      Stats: [],
-      open: false
+      selectlist: []
     }
   },
   methods: {
@@ -31,17 +30,8 @@ export default {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Vue POST Request Example' })
       }
-      await fetch('https://steambingogame20220512121421.azurewebsites.net/challengelist/CreateChallengelist?name=' + this.name + '&gameid=' + this.gameid, requestOptions)
+      await fetch('https://steambingogame20220512121421.azurewebsites.net/ChallengeList/AddToChallengeList?challengelistid=' + this.challengelistid + '&challengeid=' + this.id, requestOptions)
       location.reload()
-    },
-    async Open () {
-      this.open = true
-      const res = await fetch('https://steambingogame20220512121421.azurewebsites.net/SteamBingo/GetStats?id=' + this.gameid)
-      const data = await res.json()
-      this.Stats = data
-    },
-    async Close () {
-      this.open = false
     }
   }
 }
@@ -76,6 +66,8 @@ export default {
       margin-left: 20%;
       margin-right: 20%;
       text-align: center;
+      margin-bottom: 20px;
+      margin-top: 20px;
     }
     button{
       margin-left: 20%;

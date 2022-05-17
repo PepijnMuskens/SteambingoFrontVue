@@ -1,19 +1,26 @@
 <template>
     <button @click="fetchLobby()">Play</button>
     <h1>{{ChallengeList.Name}}</h1>
-    <div class="challenges">
+    <div>
+      <div class="challenges">
         <Challenges :Challenges="ChallengeList.challenges"/>
+    </div>
+    <div class="add">
+      <AddTo :Challenges="ChallengeList.challenges" :AvailableChallenges="AvailableChallenges" :challengelistid="ChallengeList.id" />
+    </div>
     </div>
 </template>
 
 <script>
 import Challenges from '../components/challenges'
+import AddTo from '../components/AddToChallengeList'
 
 export default {
   name: 'Game_View',
   data () {
     return {
       ChallengeList: Object,
+      AvailableChallenges: Array,
       lobbyid: Number
     }
   },
@@ -32,9 +39,13 @@ export default {
   },
   async created () {
     this.ChallengeList = await this.fetchchallengelist()
+    const res = await fetch('https://steambingogame20220512121421.azurewebsites.net/steambingo/GetChallengesGame?id=' + this.ChallengeList.gameId)
+    const data = await res.json()
+    this.AvailableChallenges = data
   },
   components: {
-    Challenges
+    Challenges,
+    AddTo
   }
 }
 </script>
@@ -68,5 +79,11 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .add{
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    justify-content: start;
   }
 </style>
