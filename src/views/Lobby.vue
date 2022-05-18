@@ -40,10 +40,18 @@ export default {
       const data = await res.json()
       this.Lobby = data
       return data
+    },
+    async update () {
+      if (!this.Lobby.open) {
+        const res = await fetch('https://localhost:7174/Lobby/GetLobby?id=' + this.$route.params.id)
+        const data = await res.json()
+        this.Lobby = data
+      }
     }
   },
   async created () {
     this.Lobby = await this.fetchLobby()
+    this.timer = setInterval(this.update, 5000)
   },
   components: {
     PlayerList,
