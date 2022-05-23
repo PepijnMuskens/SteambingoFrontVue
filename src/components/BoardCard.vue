@@ -29,6 +29,7 @@ export default {
       margin: 5px;
   }
   .pics{
+    position: absolute;
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
@@ -47,6 +48,9 @@ export default {
         border-radius: 50%;
   }
   .text{
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
   }
 </style>

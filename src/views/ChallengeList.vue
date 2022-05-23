@@ -31,7 +31,7 @@ export default {
       return data
     },
     async fetchLobby () {
-      const res = await fetch('https://localhost:7174/Lobby/CreateLobby?id=' + this.$route.params.id)
+      const res = await fetch('https://webapplication120220518221631.azurewebsites.net/Lobby/CreateLobby?id=' + this.$route.params.id)
       const data = await res.json()
       this.lobbyid = data.id
       this.$router.push({ name: 'Lobby', params: { id: data.id } })
