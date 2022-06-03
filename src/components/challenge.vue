@@ -1,18 +1,12 @@
 <template>
 <div class="card">
     <div class="Top-Row">
-        <div class="Bottem-Row">
-            <h4>discription:</h4>
-            <button v-if="!edit" @click="Edit()">E</button>
-            <button v-if="edit" @click="Save()">S</button>
-        </div>
-        <h3 v-if="!edit">{{challenge.discription}}</h3>
-        <input v-if="edit" v-model="discription">
+        <h4>discription:</h4>
+        <h3>{{challenge.discription}}</h3>
     </div>
     <h4>Stat name:</h4>
     <div class="Bottem-Row">
-        <h3 v-if="!edit">{{challenge.statName}}</h3>
-        <input v-if="edit" v-model="statname">
+        <h3>{{challenge.statName}}</h3>
         <div class="dif-div">
             <h4 class="difficulty">Difficulty:{{challenge.difficulty}}</h4>
         </div>
@@ -25,29 +19,6 @@ export default {
   name: 'Challenge_Cart',
   props: {
     challenge: Object
-  },
-  data () {
-    return {
-      edit: false,
-      form: {
-        discription: '',
-        statname: '',
-        diff: this.challenge.difficulty,
-        id: 0
-      }
-    }
-  },
-  methods: {
-    async Edit () {
-      this.edit = true
-      this.discription = this.challenge.discription
-      this.statname = this.challenge.statName
-    },
-    async Save () {
-      this.edit = false
-      await fetch('https://steambingogame20220512121421.azurewebsites.net/steambingo/editchallenge?id=' + this.challenge.id + '&discription=' + this.discription + '&statname=' + this.statname)
-      location.reload()
-    }
   }
 }
 </script>
@@ -80,7 +51,6 @@ export default {
       display: flex;
       flex-direction: column;
       align-self: flex-start;
-      width: 100%;
   }
   .Bottem-Row{
       display: flex;
@@ -95,12 +65,5 @@ export default {
   .dif-div{
       display: flex;
       flex-direction: column-reverse;
-  }
-  button{
-      margin-top: 5px;
-      height: 16px;
-      width: 16px;
-      text-align: center;
-      padding: 0px;
   }
 </style>

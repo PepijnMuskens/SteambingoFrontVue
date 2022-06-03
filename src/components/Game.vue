@@ -21,8 +21,7 @@ export default {
       justify-content: flex-start;
       flex-direction: column ;;
       width: 200px;
-      padding-left: 10%;
-      padding-right: 10%;
+      height: 100px;
       margin-bottom: 20%;
       padding-top: 10px;
   }
