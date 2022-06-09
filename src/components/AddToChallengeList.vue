@@ -30,7 +30,7 @@ export default {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Vue POST Request Example' })
       }
-      await fetch('https://steambingogame20220512121421.azurewebsites.net/ChallengeList/AddToChallengeList?challengelistid=' + this.challengelistid + '&challengeid=' + this.id, requestOptions)
+      await fetch('https://localhost:7219/ChallengeList/AddToChallengeList?challengelistid=' + this.challengelistid + '&challengeid=' + this.id, requestOptions)
       location.reload()
     }
   }

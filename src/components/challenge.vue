@@ -45,7 +45,7 @@ export default {
     },
     async Save () {
       this.edit = false
-      await fetch('https://steambingogame20220512121421.azurewebsites.net/steambingo/editchallenge?id=' + this.challenge.id + '&discription=' + this.discription + '&statname=' + this.statname)
+      await fetch('https://localhost:7219/steambingo/editchallenge?id=' + this.challenge.id + '&discription=' + this.discription + '&statname=' + this.statname)
       location.reload()
     }
   }

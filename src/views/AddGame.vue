@@ -27,7 +27,7 @@ export default {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Vue POST Request Example' })
       }
-      const res = await fetch('https://steambingogame20220512121421.azurewebsites.net/steambingo/AddSteamGame?name=' + this.name + '&id=' + this.id, requestOptions)
+      const res = await fetch('https://localhost:7219/steambingo/AddSteamGame?name=' + this.name + '&id=' + this.id, requestOptions)
       const data = await res.json()
       if (data.steamId > 1) {
         this.$router.push({ name: 'Game', params: { id: data.steamId } })

@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     async fetchGames () {
-      const res = await fetch('https://steambingogame20220512121421.azurewebsites.net/steambingo/getsteamgames')
+      const res = await fetch('https://localhost:7219/steambingo/getsteamgames')
       const data = await res.json()
       return data
     }

@@ -1,9 +1,11 @@
 <template>
     <div class="test">
       <h1>Challenges</h1>
+      <div style="overflow-y: scroll; height:500px;">
         <div v-for="challenge in Challenges" :key="challenge.discription">
             <Challenge :challenge="challenge"/>
         </div>
+      </div>
     </div>
 
 </template>
