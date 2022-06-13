@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../views/Home.vue'
 import Game from '../views/Game'
-import Home from '../views/Home'
 import ChallengeList from '../views/ChallengeList'
 import Lobby from '../views/Lobby'
 import AddGame from '../views/AddGame'
@@ -10,9 +10,9 @@ const routes = [
     path: '/game/:id',
     name: 'Game',
     component: Game
-  },
+  },  
   {
-    path: '',
+    path: '/',
     name: 'Home',
     component: Home
   },
@@ -34,8 +34,8 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
+  history: createWebHistory(),
+  routes,
 })
 
 export default router
