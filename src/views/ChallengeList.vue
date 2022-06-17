@@ -26,12 +26,12 @@ export default {
   },
   methods: {
     async fetchchallengelist () {
-      const res = await fetch('https://steambingogame20220512121421.azurewebsites.net/steambingo/getchallengelist?id=' + this.$route.params.id)
+      const res = await fetch('https://localhost:7219/steambingo/getchallengelist?id=' + this.$route.params.id)
       const data = await res.json()
       return data
     },
     async fetchLobby () {
-      const res = await fetch('https://webapplication120220518221631.azurewebsites.net/Lobby/CreateLobby?id=' + this.$route.params.id)
+      const res = await fetch('https://localhost:7174/Lobby/CreateLobby?id=' + this.$route.params.id)
       const data = await res.json()
       this.lobbyid = data.id
       this.$router.push({ name: 'Lobby', params: { id: data.id } })
@@ -39,7 +39,7 @@ export default {
   },
   async created () {
     this.ChallengeList = await this.fetchchallengelist()
-    const res = await fetch('https://steambingogame20220512121421.azurewebsites.net/steambingo/GetChallengesGame?id=' + this.ChallengeList.gameId)
+    const res = await fetch('https://localhost:7219/steambingo/GetChallengesGame?id=' + this.ChallengeList.gameId)
     const data = await res.json()
     this.AvailableChallenges = data
   },

@@ -19,7 +19,7 @@ export default {
       background: #1f1f1f;
       display: flex;
       justify-content: flex-start;
-      flex-direction: column ;;
+      flex-direction: column ;
       width: 200px;
       height: 100px;
       margin-bottom: 20%;

@@ -40,7 +40,7 @@ export default {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: 'Vue POST Request Example' })
       }
-      const res = await fetch('https://steambingogame20220512121421.azurewebsites.net/challengelist/AddChallenge?disc=' + this.discription + '&statname=' + this.statname + '&value=' + this.value + '&diff=' + this.diff + '&gameid=' + this.gameid, requestOptions)
+      const res = await fetch('https://localhost:7219/challengelist/AddChallenge?disc=' + this.discription + '&statname=' + this.statname + '&value=' + this.value + '&diff=' + this.diff + '&gameid=' + this.gameid, requestOptions)
       const data = await res.json()
       if (data.value > 0) {
         location.reload()
@@ -48,7 +48,7 @@ export default {
     },
     async Open () {
       this.open = true
-      const res = await fetch('https://steambingogame20220512121421.azurewebsites.net/SteamBingo/GetStats?id=' + this.gameid)
+      const res = await fetch('https://localhost:7219/SteamBingo/GetStats?id=' + this.gameid)
       const data = await res.json()
       this.Stats = data
     },
