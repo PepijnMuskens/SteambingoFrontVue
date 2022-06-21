@@ -27,7 +27,7 @@ export default {
       background: #1f1f1f;
       display: flex;
       justify-content: flex-start;
-      flex-direction: column ;;
+      flex-direction: column;
       padding-left: 5%;
       padding-right: 5%;
       margin-bottom: 5%;

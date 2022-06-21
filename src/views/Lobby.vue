@@ -32,7 +32,7 @@ export default {
   methods: {
     async fetchLobby () {
       const res = await fetch('https://localhost:7174/Lobby/GetLobby?id=' + this.$route.params.id)
-      return await res.json()
+      return res.json()
     },
     async StartGame () {
       const res = await fetch('https://localhost:7174/Lobby/StartGame?lobbyid=' + this.$route.params.id)

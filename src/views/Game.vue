@@ -28,7 +28,7 @@ export default {
   methods: {
     async fetchGame () {
       const res = await fetch('https://localhost:7219/steambingo/getsteamgame?id=' + this.$route.params.id)
-      return await res.json()
+      return res.json()
     }
   },
   async created () {

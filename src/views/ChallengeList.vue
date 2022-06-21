@@ -27,7 +27,7 @@ export default {
   methods: {
     async fetchchallengelist () {
       const res = await fetch('https://localhost:7219/steambingo/getchallengelist?id=' + this.$route.params.id)
-      return await res.json()
+      return res.json()
     },
     async fetchLobby () {
       const res = await fetch('https://localhost:7174/Lobby/CreateLobby?id=' + this.$route.params.id)
