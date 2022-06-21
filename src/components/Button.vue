@@ -10,8 +10,6 @@ export default {
     color: String
   },
   methods: {
-    onClick () {
-    }
   }
 }
 </script>
