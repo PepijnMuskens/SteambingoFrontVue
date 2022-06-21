@@ -2,7 +2,7 @@
 <div class="card">
   <div class="pics">
     <div v-for="player in card.players" :key="player.steamId" class="pic">
-      <img class="logo-image" :src="'data:image/jpeg;base64,'+ player.pic">
+      <img class="logo-image" :src="'data:image/jpeg;base64,'+ player.pic" alt="player profile picture">
     </div>
   </div>
   <div class="text"><p>{{card.discription}}</p></div>

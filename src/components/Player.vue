@@ -1,6 +1,6 @@
 <template>
 <div class="card">
-    <img :src="'data:image/jpeg;base64,'+player.pic">
+    <img :src="'data:image/jpeg;base64,'+player.pic" alt="player profile picture">
     <h1>{{player.name}}</h1>
     <h3>{{player.steamId}}</h3>
 </div>
