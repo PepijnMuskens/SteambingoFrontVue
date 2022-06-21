@@ -32,8 +32,7 @@ export default {
   methods: {
     async fetchLobby () {
       const res = await fetch('https://localhost:7174/Lobby/GetLobby?id=' + this.$route.params.id)
-      const data = await res.json()
-      return data
+      return await res.json()
     },
     async StartGame () {
       const res = await fetch('https://localhost:7174/Lobby/StartGame?lobbyid=' + this.$route.params.id)
@@ -67,7 +66,7 @@ export default {
       background: #f4f4f4;
       display: flex;
       justify-content: flex-start;
-      flex-direction: column ;;
+      flex-direction: column;
       width: 200px;
       padding-left: 10%;
       padding-right: 10%;
